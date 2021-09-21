@@ -1,4 +1,4 @@
-package analytics_counter_original_fix;
+package com.hemebiotech.analytics;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
