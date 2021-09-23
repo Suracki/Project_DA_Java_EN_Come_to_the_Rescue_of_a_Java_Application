@@ -22,7 +22,7 @@ public class AnalyticsCounter {
 		String outputFilename = "result.out";
 
 		//Read input from file into SymptomList object by creating and using a SymptomFileReader object
-		symptomList = (new SymptomFileReader().readSymptomsFromFile(inputFilename));
+		symptomList = new SymptomFileReader().readSymptomsFromFile(inputFilename);
 			
 		
 		//Write output to file from SymptomList object by using a SymptomFileWriter object
