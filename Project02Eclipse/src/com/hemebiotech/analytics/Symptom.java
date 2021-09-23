@@ -24,12 +24,9 @@ public class Symptom {
 	
 	/**
 	* Add a new case of this symptom
-	* 
-	* @return <code>true</code> when a new case is successfully added 
 	*/
-	public boolean addCase() {
+	public void addCase() {
 		cases++;
-		return true;
 	}
 	
 	/**
