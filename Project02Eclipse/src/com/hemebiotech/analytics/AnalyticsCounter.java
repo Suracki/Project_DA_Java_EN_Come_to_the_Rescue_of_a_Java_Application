@@ -26,8 +26,7 @@ public class AnalyticsCounter {
 			
 		
 		//Write output to file from SymptomList object by using a SymptomFileWriter object
-		SymptomFileWriter fileWriter = new SymptomFileWriter();
-		fileWriter.writeSymptomsToFile(outputFilename, symptomList);
+		new SymptomFileWriter().writeSymptomsToFile(outputFilename, symptomList);
 				
 		
 	}
