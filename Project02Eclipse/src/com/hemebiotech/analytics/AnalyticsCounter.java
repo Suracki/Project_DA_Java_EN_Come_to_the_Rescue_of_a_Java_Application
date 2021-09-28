@@ -1,43 +1,33 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-
+/**
+ * AnalyticsCounter runs through the process of sorting a list of symptom occurrences. 
+ * <p>
+ * The current version of this class include inputFilename and outputFilename variables pre-set.
+ * This can be adjusted in future versions to take these from the input arguments.
+ *
+ * @version 21/9/2021
+ */
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+
 	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
-
-		int i = 0;	// set i to 0
-		int headCount = 0;	// counts headaches
-		while (line != null) {
-			i++;	// increment i
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
-			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();	// get another symptom
-		}
+	/**
+	 * The main method takes any appropriate arguments (none currently required) and runs through
+	 * the process of reading in the input file, processing the data, and writing to the output file
+	 */
+	public static void main(String args[]) {
 		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		SymptomList symptomList;
+		String inputFilename = "symptoms.txt";
+		String outputFilename = "result.out";
+
+		//Read input from file into SymptomList object by creating and using a SymptomFileReader object
+		symptomList = new SymptomFileReader().readSymptomsFromFile(inputFilename);
+			
+		
+		//Write output to file from SymptomList object by using a SymptomFileWriter object
+		new SymptomFileWriter().writeSymptomsToFile(outputFilename, symptomList);
+				
+		
 	}
 }
