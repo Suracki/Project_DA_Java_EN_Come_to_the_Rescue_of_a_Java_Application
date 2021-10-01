@@ -3,7 +3,7 @@ package com.hemebiotech.analytics;
 import java.util.Comparator;
 
 /**
- * SymptomNameSorted is an implementation of Comparator to allow us to compare Symptom names.
+ * SymptomNameSorter is an implementation of Comparator to allow us to compare Symptom names.
  * Compares the name variable of two Symptom objects alphabetically 
  *
  * @version 21/9/2021
